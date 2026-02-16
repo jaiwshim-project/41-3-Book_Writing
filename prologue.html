@@ -148,9 +148,33 @@
       background: #2d2d4e;
     }
 
+    .pdf-btn {
+      position: fixed;
+      top: 60px;
+      right: 20px;
+      background: #dc2626;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 9pt;
+      font-weight: 600;
+      cursor: pointer;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: background 0.2s;
+    }
+
+    .pdf-btn:hover {
+      background: #b91c1c;
+    }
+
     @media print {
       body { margin: 0; padding: 0; }
-      .download-btn { display: none; }
+      .download-btn, .pdf-btn { display: none; }
     }
   </style>
 </head>
@@ -158,6 +182,10 @@
 
   <button class="download-btn" onclick="downloadDocx()">
     <span>&#x1F4E5;</span> DOCX 다운로드
+  </button>
+
+  <button class="pdf-btn" onclick="downloadPdf()">
+    <span>&#x1F4C4;</span> PDF 다운로드
   </button>
 
   <div class="content-wrap">
@@ -615,6 +643,15 @@
       URL.revokeObjectURL(link.href);
 
       btn.style.display = 'flex';
+    }
+
+    function downloadPdf() {
+      var btns = document.querySelectorAll('.download-btn, .pdf-btn');
+      btns.forEach(function(b) { b.style.display = 'none'; });
+      window.print();
+      setTimeout(function() {
+        btns.forEach(function(b) { b.style.display = 'flex'; });
+      }, 1000);
     }
   </script>
 

@@ -245,12 +245,36 @@
       background: #2d2d4e;
     }
 
+    .pdf-btn {
+      position: fixed;
+      top: 60px;
+      right: 20px;
+      background: #dc2626;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 9pt;
+      font-weight: 600;
+      cursor: pointer;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: background 0.2s;
+    }
+
+    .pdf-btn:hover {
+      background: #b91c1c;
+    }
+
     @media print {
       body {
         margin: 0;
         padding: 0;
       }
-      .download-btn {
+      .download-btn, .pdf-btn {
         display: none;
       }
     }
@@ -263,6 +287,10 @@
       <path d="M8 1v9M8 10L5 7M8 10l3-3M2 12v2h12v-2" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
     DOCX 다운로드
+  </button>
+
+  <button class="pdf-btn" onclick="downloadPdf()">
+    <span>&#x1F4C4;</span> PDF 다운로드
   </button>
 
   <h1>챕터 2. 바이브 코딩으로 만든 8가지 플랫폼</h1>
@@ -1318,6 +1346,15 @@
       URL.revokeObjectURL(link.href);
 
       btn.style.display = 'flex';
+    }
+
+    function downloadPdf() {
+      var btns = document.querySelectorAll('.download-btn, .pdf-btn');
+      btns.forEach(function(b) { b.style.display = 'none'; });
+      window.print();
+      setTimeout(function() {
+        btns.forEach(function(b) { b.style.display = 'flex'; });
+      }, 1000);
     }
   </script>
 
