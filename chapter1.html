@@ -54,7 +54,7 @@
 
     /* Phase 제목 스타일 */
     h3.phase-title {
-      font-size: 10px;
+      font-size: 9pt;
       color: #0d0d1a;
       padding-left: 0;
       border-left: none;
@@ -67,7 +67,7 @@
     h3.phase-title.phase-4 { border-bottom: 2px solid #f59e0b; }
 
     .phase-desc {
-      font-size: 9px;
+      font-size: 9pt;
       color: #111;
       margin-bottom: 20px;
     }
@@ -75,7 +75,7 @@
     .subtitle {
       text-align: center;
       color: #111;
-      font-size: 9px;
+      font-size: 9pt;
       margin-bottom: 40px;
     }
 
@@ -157,7 +157,7 @@
       background: #1a1a2e;
       padding: 16px;
       border-radius: 6px;
-      font-size: 9px;
+      font-size: 9pt;
       color: #f97316;
       line-height: 1.6;
     }
@@ -167,7 +167,7 @@
       background: #f4f4f4;
       padding: 12px 16px;
       border-radius: 6px;
-      font-size: 9px;
+      font-size: 9pt;
       color: #111;
     }
 
@@ -176,7 +176,7 @@
       background: #f4f4f4;
       padding: 16px;
       border-radius: 6px;
-      font-size: 10px;
+      font-size: 9pt;
       line-height: 1.6;
       overflow-x: auto;
       color: #111;
@@ -197,7 +197,7 @@
 
     /* 마무리 문구 */
     .closing-statement {
-      font-size: 10px;
+      font-size: 9pt;
       font-weight: bold;
       color: #1a1a2e;
       margin-top: 16px;
@@ -205,7 +205,7 @@
 
     .final-statement {
       margin-top: 32px;
-      font-size: 9px;
+      font-size: 9pt;
       font-weight: bold;
       color: #1a1a2e;
       text-align: center;
@@ -217,7 +217,7 @@
     }
 
     .zero-lines {
-      font-size: 10px;
+      font-size: 9pt;
       color: #dc2626;
     }
 
@@ -284,7 +284,7 @@
       display: inline-block;
       padding: 2px 8px;
       border-radius: 4px;
-      font-size: 9px;
+      font-size: 9pt;
       font-weight: 600;
       color: #f97316;
     }
@@ -297,7 +297,7 @@
 
     .command-text {
       color: #1a1a2e;
-      font-size: 10px;
+      font-size: 9pt;
       line-height: 1.5;
     }
 
@@ -305,7 +305,7 @@
       margin-top: 24px;
       padding-top: 16px;
       border-top: 1px solid #ddd;
-      font-size: 9px;
+      font-size: 9pt;
       color: #333;
       text-align: center;
     }
@@ -319,7 +319,7 @@
       border: none;
       padding: 10px 20px;
       border-radius: 6px;
-      font-size: 9px;
+      font-size: 9pt;
       font-weight: 600;
       cursor: pointer;
       z-index: 1000;
@@ -332,6 +332,17 @@
 
     .download-btn:hover {
       background: #2d2d4e;
+    }
+
+    .screenshot-img {
+      display: block;
+      max-width: 100%;
+      margin: 16px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    }
+    .screenshot-img.small {
+      max-width: 600px;
     }
 
     @media print {
@@ -393,7 +404,9 @@
       <li>폴더 이름을 <strong>바이브코딩</strong>이라고 입력한다</li>
     </ol>
 
-    <p class="screenshot-note">(폴더 생성 스크린샷 삽입)</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page02_img1.png" alt="마우스 오른쪽 클릭 메뉴 - 터미널에서 열기" class="screenshot-img small">
+    </p>
 
     <p>이 폴더가 앞으로 우리가 바이브 코딩으로 만드는 모든 프로젝트의 집이 된다.</p>
 
@@ -404,7 +417,9 @@
       <li>메뉴에서 <strong>"터미널에서 열기"</strong>를 클릭한다</li>
     </ol>
 
-    <p class="screenshot-note">(마우스 오른쪽 클릭 → 터미널에서 열기 스크린샷 삽입)</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page02_img2.png" alt="Windows PowerShell 터미널 화면" class="screenshot-img">
+    </p>
 
     <p>검은색(또는 파란색) 창이 팝업으로 뜬다. 이것이 <strong>터미널</strong>이다.</p>
 
@@ -433,7 +448,9 @@
       <strong>winget이 뭐야?</strong> Windows에 내장된 프로그램 설치 도구다. 앱스토어에서 앱을 설치하는 것과 같다. 다만 마우스 클릭 대신 글자로 설치할 프로그램 이름을 적는 것뿐이다.
     </blockquote>
 
-    <p class="screenshot-note">(VS Code 설치 진행 화면 스크린샷 삽입)</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page04_img1.png" alt="VS Code 설치 진행 화면" class="screenshot-img">
+    </p>
 
     <p>설치가 완료되면 시작 메뉴에서 "Visual Studio Code"를 찾을 수 있다.</p>
 
@@ -591,7 +608,9 @@
 
     <h2>이 챕터에서 만들 것</h2>
     <p>이 챕터를 따라하면, 아래와 같은 <strong>바이브코딩 완벽 매뉴얼</strong> 웹사이트를 직접 만들 수 있다. 코딩 경험이 전혀 없어도 괜찮다. AI에게 말만 하면 된다.</p>
-    <p class="screenshot-note">(완성본 스크린샷 삽입)</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page08_img1.png" alt="바이브코딩 완벽 매뉴얼 완성본" class="screenshot-img">
+    </p>
 
     <hr class="sub-divider">
 
@@ -811,28 +830,46 @@ cd my-vibe-manual</pre>
   index.html 단일 파일로 만들고, 왼쪽에 사이드바 메뉴, 오른쪽에 본문이 있는
   레이아웃으로 해줘. 다크 모드 테마로 해줘.</pre>
     <p>이 한마디에 AI가 약 770줄의 HTML/CSS/JavaScript 코드를 생성한다. 다크 모드 배경에 사이드바와 본문이 있는 웹페이지가 약 30초~1분 만에 만들어진다.</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page13_img1.png" alt="명령 1 결과 - Claude 가이드 기본 웹페이지" class="screenshot-img">
+    </p>
 
     <h3>명령 2. 글씨 밝기 수정</h3>
     <pre class="cmd-dark">&gt; 본문 글씨가 어두워서 잘 안 보여. 글씨를 충분히 밝게 해서 잘 읽히도록 해줘.</pre>
     <p>다크 모드에서 글씨가 어두우면 이렇게 느낀 그대로 말하면 된다. AI가 CSS 색상을 조정해준다.</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page14_img1.png" alt="명령 2 결과 - 글씨 밝기 수정" class="screenshot-img">
+    </p>
 
     <h3>명령 3. 다른 도구 섹션 추가</h3>
     <pre class="cmd-dark">&gt; GitHub, Supabase, Vercel, VS Code 섹션도 추가해줘.
   각 도구별로 소개와 핵심 기능을 설명해줘.</pre>
     <p>Claude만 있던 사이트에 4개 도구가 추가된다. 각 도구별 콘텐츠가 자동으로 생성된다.</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page15_img1.png" alt="명령 3 결과 - 도구 섹션 추가" class="screenshot-img">
+    </p>
 
     <h3>명령 4. 상단 탭 추가</h3>
     <pre class="cmd-dark">&gt; 상단에 내비게이션 탭 버튼을 만들어서 Claude, GitHub, Supabase, Vercel,
   VS Code를 선택할 수 있게 해줘.</pre>
     <p>화면 상단에 탭 버튼이 생긴다. 각 버튼을 클릭하면 해당 도구의 섹션으로 이동한다.</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page16_img1.png" alt="명령 4 결과 - 상단 탭 추가" class="screenshot-img">
+    </p>
 
     <h3>명령 5. 사이드바 정리</h3>
     <pre class="cmd-dark">&gt; 왼쪽 사이드바에 각 도구별 하위 메뉴를 카테고리로 나눠서 정리해줘.</pre>
     <p>뒤섞여 있던 사이드바 메뉴가 도구별로 깔끔하게 분류된다.</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page17_img1.png" alt="명령 5 결과 - 사이드바 정리" class="screenshot-img">
+    </p>
 
     <h3>명령 6. 사이드바 색상</h3>
     <pre class="cmd-dark">&gt; 사이드바의 카테고리 제목에 상단 탭 버튼과 같은 색상을 적용해줘.</pre>
     <p>사이드바에 브랜드 색상이 적용된다. Claude는 하늘색, GitHub는 보라색, Supabase는 초록색, Vercel은 빨간색, VS Code는 핑크색.</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page18_img1.png" alt="명령 6 결과 - 사이드바 색상 적용" class="screenshot-img">
+    </p>
 
     <blockquote class="bq-success">
       <strong>여기까지가 바이브 코딩의 핵심이다.</strong> 6번의 명령으로 사이트의 기본 구조가 완성됐다. 코드를 한 줄도 직접 쓰지 않았다. 만들고 싶은 것을 말했고, 마음에 안 드는 것을 말했을 뿐이다.
@@ -849,19 +886,31 @@ cd my-vibe-manual</pre>
     <pre class="cmd-dark">&gt; 홈 화면에 각 도구(Claude, GitHub, Supabase, Vercel, VS Code)를
   소개하는 카드를 추가해줘.</pre>
     <p>홈 화면에 5개의 카드가 나타난다. 각 도구를 아이콘+제목+설명으로 한눈에 보여준다.</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page19_img2.png" alt="명령 7 결과 - 홈 화면 카드 추가" class="screenshot-img">
+    </p>
 
     <h3>명령 8. 설치 로드맵 추가</h3>
     <pre class="cmd-dark">&gt; 홈 화면 카드 아래에 설치 순서 로드맵을 세로 타임라인 형태로 추가해줘.</pre>
     <p>카드 아래에 8단계 세로 타임라인이 추가된다. VS Code 설치부터 개발 시작까지의 순서를 안내한다.</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page20_img2.png" alt="명령 8 결과 - 설치 로드맵 추가" class="screenshot-img">
+    </p>
 
     <h3>명령 9. 배경색 변경</h3>
     <pre class="cmd-dark">&gt; 상단 내비게이션 바 배경색을 진한 회색으로, 페이지 배경색을 진한 녹색으로 바꿔줘.</pre>
     <p>전체 색감이 바뀐다. 이처럼 색상을 바꾸고 싶으면 느낀 대로 말하면 된다.</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page21_img2.png" alt="명령 9 결과 - 배경색 변경" class="screenshot-img">
+    </p>
 
     <h3>명령 10. 푸터 추가</h3>
     <pre class="cmd-dark">&gt; 페이지 맨 아래에 푸터를 추가해줘. 사이트 소개, 포함된 가이드 목록,
   관련 링크를 3컬럼으로 보여줘.</pre>
     <p>페이지 하단에 3컬럼 푸터가 생긴다.</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page22_img2.png" alt="명령 10 결과 - 푸터 추가" class="screenshot-img">
+    </p>
 
     <hr class="sub-divider">
 
@@ -873,25 +922,43 @@ cd my-vibe-manual</pre>
     <h3>명령 11. 브랜딩 변경</h3>
     <pre class="cmd-dark">&gt; 사이트 이름을 'Vibe Coding Manual'로 바꿔줘. 상단 로고, 사이드바 로고,
   푸터 제목 모두 변경해줘.</pre>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page23_img2.png" alt="명령 11 결과 - 브랜딩 변경" class="screenshot-img">
+    </p>
 
     <h3>명령 12. 푸터 색상</h3>
     <pre class="cmd-dark">&gt; 푸터의 제목들을 노란색으로 바꿔줘.</pre>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page24_img1.png" alt="명령 12 결과 - 푸터 색상 변경" class="screenshot-img">
+    </p>
 
     <h3>명령 13. 콘텐츠 품질 향상</h3>
     <pre class="cmd-dark">&gt; GitHub 공식 매뉴얼(https://docs.github.com)을 참고해서
   GitHub 소개 섹션을 더 정확하고 상세하게 업데이트해줘.</pre>
     <p>참고 자료 URL을 함께 제공하면 AI가 훨씬 정확하고 풍부한 콘텐츠를 만들어준다. 사람에게 "보고서 써줘"라고만 하는 것과 "이 자료 참고해서 보고서 써줘"라고 하는 것의 차이와 같다.</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page25_img2.png" alt="명령 13 결과 - 콘텐츠 품질 향상" class="screenshot-img">
+    </p>
 
     <h3>명령 14. 홈 제목 변경</h3>
     <pre class="cmd-dark">&gt; 홈 화면 제목을 '바이브코딩 완벽 매뉴얼'로 바꾸고,
   부제목을 노란색 볼드로 만들어줘.</pre>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page26_img2.png" alt="명령 14 결과 - 홈 제목 변경" class="screenshot-img">
+    </p>
 
     <h3>명령 15. 카드 테두리 색상</h3>
     <pre class="cmd-dark">&gt; 홈 화면의 각 카드 상단에 도구별 브랜드 색상 테두리를 추가해줘.</pre>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page27_img2.png" alt="명령 15 결과 - 카드 테두리 색상" class="screenshot-img">
+    </p>
 
     <h3>명령 16. 복사 버튼 추가</h3>
     <pre class="cmd-dark">&gt; 로드맵의 각 명령어 옆에 복사 버튼을 추가해줘.</pre>
     <p>클릭하면 명령어가 클립보드에 복사되는 기능이 추가된다. JavaScript를 몰라도 "복사 버튼 넣어줘"라고 말하면 된다.</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page28_img1.png" alt="명령 16 결과 - 복사 버튼 추가" class="screenshot-img">
+    </p>
 
     <blockquote class="bq-purple">
       <strong>바이브 코딩에서 디자인 수정은 느낀 대로 말하면 된다.</strong> CSS를 몰라도, 색상 코드를 몰라도 상관없다. "좀 더 진하게", "좀 더 밝게", "노란색으로" — 이 정도면 충분하다.
@@ -907,31 +974,52 @@ cd my-vibe-manual</pre>
     <h3>명령 17. 사용자 매뉴얼 탭 추가</h3>
     <pre class="cmd-dark">&gt; 상단 내비게이션에 '사용자 매뉴얼' 버튼을 추가해줘.
   오른쪽에 간격을 두고 배치해줘.</pre>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page29_img2.png" alt="명령 17 결과 - 사용자 매뉴얼 탭" class="screenshot-img">
+    </p>
 
     <h3>명령 18. 매뉴얼 내용 작성</h3>
     <pre class="cmd-dark">&gt; 사용자 매뉴얼 페이지를 만들어줘. 시작하기, 화면 구성, 주요 기능,
   자주 묻는 질문 4개 메뉴로 구성해줘.</pre>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page30_img1.png" alt="명령 18 결과 - 매뉴얼 내용" class="screenshot-img">
+    </p>
 
     <h3>명령 19. 매뉴얼 수정</h3>
     <pre class="cmd-dark">&gt; 사용자 매뉴얼의 '시작하기' 페이지를 수정해줘. Vibe Coding Manual 소개,
   사용 방법, 권장 학습 순서를 넣어줘.
   권장 학습 순서에는 명령어와 복사 버튼을 포함해줘.</pre>
     <p>한 번에 완벽하게 나오지 않을 때는 이렇게 구체적으로 수정을 요청한다. "만들고 → 보고 → 고치고"를 반복하는 것이 바이브 코딩의 기본 흐름이다.</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page32_img1.png" alt="명령 19 결과 - 매뉴얼 수정" class="screenshot-img">
+    </p>
 
     <h3>명령 20. 사이드바 메뉴 확장</h3>
     <pre class="cmd-dark">&gt; 각 도구의 사이드바 하위 메뉴를 더 추가해줘.
   Claude에 토큰 절감 방안, Anthropic 이야기를 추가하고,
   GitHub에 GitHub Flow, 마크다운 문법, GitHub Actions를 추가하고,
   Supabase에 스토리지, RLS &amp; 보안, 벡터 DB &amp; AI를 추가해줘.</pre>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page33_img1.png" alt="명령 20 결과 - 사이드바 메뉴 확장" class="screenshot-img">
+    </p>
 
     <h3>명령 21. 콘텐츠 페이지 작성</h3>
     <pre class="cmd-dark">&gt; 추가한 사이드바 메뉴에 맞는 콘텐츠 페이지를 모두 만들어줘.</pre>
     <p>이 한마디에 AI가 수십 개의 콘텐츠 페이지를 자동으로 생성한다.</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page34_img1.png" alt="명령 21 결과 - 콘텐츠 페이지 생성 (이전)" class="screenshot-img">
+    </p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page35_img1.png" alt="명령 21 결과 - 콘텐츠 페이지 생성 (이후)" class="screenshot-img">
+    </p>
 
     <h3>명령 22. 최종 마무리</h3>
     <pre class="cmd-dark">&gt; 사이드바 로고와 상단 로고를 클릭하면 홈 화면으로 돌아가게 해줘.
   그리고 푸터 제목을 대문자로 바꿔줘.</pre>
     <p>마지막 세부 사항까지 다듬으면 완성이다.</p>
+    <p style="text-align:center; margin:16px 0;">
+      <img src="images/chapter1/page37_img1.png" alt="명령 22 결과 - 최종 완성" class="screenshot-img">
+    </p>
 
     <hr class="sub-divider">
 
