@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>PART 5. AI 시대의 1인 사업자</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 20mm;
+    }
+
+    body {
+      font-family: '맑은 고딕', 'Malgun Gothic', 'Segoe UI', sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 40px;
+      background: #fff;
+      color: #000;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    h1 {
+      font-size: 22px;
+      text-align: center;
+      margin-top: 48px;
+      margin-bottom: 12px;
+      color: #0d0d1a;
+      letter-spacing: -0.3px;
+    }
+
+    h2 {
+      font-size: 10px;
+      margin-top: 40px;
+      margin-bottom: 12px;
+      color: #1e2d5e;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e8eaf6;
+    }
+
+    h3 {
+      font-size: 9px;
+      margin-top: 32px;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+      padding-left: 12px;
+      border-left: 3px solid #7c8cc4;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #111;
+      font-size: 10px;
+      margin-bottom: 40px;
+    }
+
+    p {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    blockquote {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9px;
+      margin-top: 16px;
+      margin-bottom: 24px;
+    }
+
+    thead th {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    thead th:first-child {
+      width: 50px;
+      text-align: center;
+    }
+
+    tbody td {
+      padding: 9px 12px;
+      border-bottom: 1px solid #ddd;
+      vertical-align: top;
+    }
+
+    tbody td:first-child {
+      text-align: center;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f8f9fa;
+    }
+
+    ol, ul {
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
+
+    ol li, ul li {
+      margin-bottom: 8px;
+    }
+
+    .bq-info {
+      border-left: 4px solid #2563eb;
+      padding: 12px 20px;
+      background: #eff6ff;
+      color: #111;
+    }
+
+    .bq-tip {
+      border-left: 4px solid #f59e0b;
+      padding: 12px 20px;
+      background: #fffbeb;
+      color: #111;
+    }
+
+    .bq-warn {
+      border-left: 4px solid #dc2626;
+      padding: 12px 20px;
+      background: #fef2f2;
+      color: #111;
+    }
+
+    .bq-success {
+      border-left: 4px solid #16a34a;
+      padding: 12px 20px;
+      background: #f0fdf4;
+      color: #111;
+    }
+
+    .section-divider {
+      margin: 48px 0 40px;
+      border: none;
+      border-top: 2px solid #1a1a2e;
+    }
+
+    .sub-divider {
+      margin: 32px 0;
+      border: none;
+      border-top: 1px solid #ddd;
+    }
+
+    .content-wrap {
+      line-height: 1.9;
+      font-size: 10px;
+      color: #111;
+    }
+
+    .big-quote {
+      font-size: 10px;
+      font-weight: bold;
+      color: #1e2d5e;
+      text-align: center;
+      margin: 40px 0;
+      line-height: 1.7;
+    }
+
+    .big-quote-dark {
+      font-size: 10px;
+      font-weight: bold;
+      color: #0d0d1a;
+      text-align: center;
+      margin: 32px 0;
+      line-height: 1.7;
+    }
+
+    .highlight-box {
+      background: #f8f9ff;
+      border: 2px solid #1e2d5e;
+      padding: 24px 28px;
+      margin: 24px 0;
+    }
+
+    .highlight-box p {
+      margin: 8px 0;
+    }
+
+    .step-card {
+      background: #f0f4ff;
+      border-left: 4px solid #1e2d5e;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .step-card strong {
+      color: #1e2d5e;
+    }
+
+    .analogy-box {
+      background: #fefce8;
+      border-left: 4px solid #eab308;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-style: italic;
+    }
+
+    .flow-box {
+      background: #f0f4ff;
+      border: 2px solid #1e2d5e;
+      padding: 24px 28px;
+      margin: 24px 0;
+      text-align: center;
+      font-size: 10px;
+      font-weight: bold;
+      color: #1e2d5e;
+      line-height: 2.0;
+    }
+
+    .case-box {
+      background: #f8fffe;
+      border: 1px solid #d1fae5;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+
+    .case-box strong {
+      color: #065f46;
+    }
+
+    .persona-card {
+      background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+      border: 1px solid #c7d2fe;
+      padding: 24px 28px;
+      margin: 20px 0;
+    }
+
+    .persona-card .persona-name {
+      font-size: 10px;
+      font-weight: bold;
+      color: #1e2d5e;
+      margin-bottom: 4px;
+    }
+
+    .persona-card .persona-profile {
+      font-size: 10px;
+      color: #666;
+      margin-bottom: 12px;
+    }
+
+    .persona-card p {
+      margin: 6px 0;
+    }
+
+    .closing-box {
+      background: linear-gradient(135deg, #fff0f3, #ffe4ec, #ffd6e0);
+      border: none;
+      padding: 40px 36px;
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    .closing-box h3 {
+      border-left: none;
+      padding-left: 0;
+      text-align: center;
+      color: #1e2d5e;
+      font-size: 10px;
+      margin-bottom: 20px;
+    }
+
+    .closing-box p {
+      color: #333;
+      line-height: 2.0;
+    }
+
+    .closing-box .final-line {
+      font-size: 10px;
+      font-weight: bold;
+      color: #1e2d5e;
+      margin-top: 24px;
+      line-height: 1.7;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid #ddd;
+      font-size: 9px;
+      color: #333;
+      text-align: center;
+    }
+
+    .download-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #1a1a2e;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 9px;
+      font-weight: 600;
+      cursor: pointer;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: background 0.2s;
+    }
+
+    .download-btn:hover {
+      background: #2d2d4e;
+    }
+
+    @media print {
+      body { margin: 0; padding: 0; }
+      .download-btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="download-btn" onclick="downloadDocx()">
+    <span>&#x1F4E5;</span> DOCX 다운로드
+  </button>
+
+  <div class="content-wrap">
+
+    <h1>PART 5</h1>
+    <p class="subtitle">AI 시대의 1인 사업자 — 경험이 곧 경쟁력이 되는 시대</p>
+
+    <hr class="section-divider">
+
+    <!-- ===== 27장: 시니어의 강점 ===== -->
+
+    <h2>27장. 왜 시니어가 유리한가</h2>
+
+    <h3>"젊은 사람들이 더 잘하지 않나요?"</h3>
+
+    <p>바이브 코딩 이야기를 하면, 대부분의 시니어가 가장 먼저 하는 말이 이것이다.</p>
+
+    <p class="big-quote">"그래도 젊은 사람들이 더 잘하지 않나요?"</p>
+
+    <p>솔직하게 답하겠다. <strong>아니다.</strong></p>
+
+    <p>코딩 기술로 승부하던 시대에는 그랬다. 20대 개발자가 10년간 프로그래밍 언어를 익히고, 최신 프레임워크를 공부하고, 밤새 코드를 짜는 방식의 개발에서는 젊은 사람이 유리했다. 당연하다. 체력도, 학습 속도도, 새로운 기술에 대한 적응력도 젊은 사람이 앞섰다.</p>
+
+    <p>하지만 바이브 코딩은 게임의 규칙을 완전히 바꿨다.</p>
+
+    <div class="highlight-box">
+      <p><strong>과거의 경쟁력:</strong> 프로그래밍 기술 + 체력 + 최신 기술 학습 속도</p>
+      <p><strong>바이브 코딩 시대의 경쟁력:</strong> 도메인 지식 + 문제 발견 능력 + 고객 이해력</p>
+    </div>
+
+    <p>코딩 기술은 AI가 대체했다. 남은 것은 "무엇을 만들어야 하는가"를 아는 능력이다. 그리고 그 능력은 <strong>경험</strong>에서 온다. 20년, 30년, 40년간 현장에서 쌓은 경험 — 이것은 AI가 대체할 수 없고, 젊은 개발자가 가질 수 없는, 시니어만의 절대적 강점이다.</p>
+
+    <h3>시니어가 가진 5가지 결정적 강점</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>순서</th>
+          <th>강점</th>
+          <th>왜 바이브 코딩에서 유리한가</th>
+          <th>젊은 개발자와의 차이</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>도메인 전문성</td>
+          <td>"무엇을 만들어야 하는지"를 안다. AI에게 정확한 지시를 내릴 수 있다</td>
+          <td>젊은 개발자는 기술은 알지만, 어떤 문제를 풀어야 하는지 모르는 경우가 많다</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>고객 이해력</td>
+          <td>고객이 진짜 원하는 것이 무엇인지 피부로 안다. 기능이 아니라 가치를 설계할 수 있다</td>
+          <td>현장 경험 없이 고객 요구를 추측하면, 아무도 쓰지 않는 제품이 나온다</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>인적 네트워크</td>
+          <td>수십 년간 쌓은 인맥이 있다. 초기 사용자 확보, 피드백, 파트너십에서 압도적으로 유리하다</td>
+          <td>젊은 창업자가 가장 힘들어하는 것이 초기 사용자 확보다</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>신뢰 자본</td>
+          <td>30년간 쌓은 평판과 신뢰가 있다. 같은 서비스라도 경험 많은 전문가가 만든 것이 더 신뢰받는다</td>
+          <td>이름도 없는 스타트업이 신뢰를 얻으려면 오랜 시간과 비용이 필요하다</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>판단력</td>
+          <td>어떤 기회를 잡고, 어떤 것을 포기해야 하는지를 안다. 시행착오의 비용을 줄여준다</td>
+          <td>경험 없이 모든 기회를 쫓으면, 아무것도 완성하지 못한다</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>시니어 창업의 현실적 장점</h3>
+
+    <p>감성적인 이야기가 아니라, 현실적인 숫자로 이야기해보자.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>순서</th>
+          <th>항목</th>
+          <th>20~30대 창업자</th>
+          <th>50~60대 시니어 창업자</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>초기 자금 부담</td><td>대출, 투자 필수 (개발비 3,000만원+)</td><td>바이브 코딩으로 0원 시작 가능</td></tr>
+        <tr><td>2</td><td>실패 리스크</td><td>빚, 경력 단절, 심리적 압박 큼</td><td>연금/자산이 있어 생존 압박이 상대적으로 낮음</td></tr>
+        <tr><td>3</td><td>시간 확보</td><td>직장과 병행하기 어려움</td><td>은퇴 후 시간이 충분함</td></tr>
+        <tr><td>4</td><td>초기 사용자</td><td>지인 마케팅 한계, 광고비 필요</td><td>30년 인맥으로 초기 100명 확보 가능</td></tr>
+        <tr><td>5</td><td>사업 감각</td><td>직감보다 트렌드에 의존</td><td>현장 경험에 기반한 검증된 판단</td></tr>
+      </tbody>
+    </table>
+
+    <blockquote class="bq-success">
+      <strong>데이터가 증명하는 시니어 창업의 성공률</strong>
+      <p>하버드 비즈니스 리뷰(2018)에 따르면, 가장 성공적인 스타트업 창업자의 평균 나이는 <strong>45세</strong>다. 50대 창업자가 30대 미만 창업자보다 성공 확률이 1.8배 높다. 젊음이 창업의 조건이라는 것은 편견이다. 경험과 판단력이 창업의 진짜 조건이다.</p>
+    </blockquote>
+
+    <hr class="section-divider">
+
+    <!-- ===== 28장: 1인 사업 설계 ===== -->
+
+    <h2>28장. 1인 사업 설계 — 혼자서도 충분하다</h2>
+
+    <h3>1인 사업이란 무엇인가</h3>
+
+    <p>1인 사업은 직원을 고용하지 않고, 혼자서 운영하는 사업을 말한다. "규모가 작은 사업"이라는 의미가 아니다. <strong>불필요한 조직 없이, 핵심 가치에만 집중하는 사업</strong>이다.</p>
+
+    <div class="analogy-box">
+      유튜버가 혼자서 촬영, 편집, 업로드를 하면서 수억 원의 수익을 올리듯, 바이브 코딩을 활용하면 혼자서 서비스를 개발, 운영, 마케팅하면서 의미 있는 수익을 만들 수 있다.
+    </div>
+
+    <h3>1인 사업의 비용 구조</h3>
+
+    <p>바이브 코딩 기반 1인 사업의 월 고정 비용을 계산해보자.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>순서</th>
+          <th>항목</th>
+          <th>월 비용</th>
+          <th>비고</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>클로드 코드 (Pro)</td><td>약 2.8만원</td><td>개발, 수정, 유지보수 모두 포함</td></tr>
+        <tr><td>2</td><td>GitHub</td><td>0원</td><td>Free 요금제</td></tr>
+        <tr><td>3</td><td>Vercel</td><td>0원</td><td>Hobby 요금제</td></tr>
+        <tr><td>4</td><td>Supabase</td><td>0원</td><td>Free 요금제 (MAU 1,000명까지 충분)</td></tr>
+        <tr><td>5</td><td>도메인</td><td>약 1.5만원/년</td><td>선택사항. 없어도 .vercel.app 주소 사용 가능</td></tr>
+        <tr><td>6</td><td>사무실</td><td>0원</td><td>집에서 운영</td></tr>
+        <tr><td>7</td><td>직원</td><td>0원</td><td>AI가 개발자 역할</td></tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-box">
+      <p><strong>월 총 고정 비용: 약 3만 원</strong></p>
+      <p>월 매출 3만 원만 넘으면 흑자. 월 매출 100만 원이면 수익률 97%. 이런 비용 구조의 사업이 역사상 존재한 적이 있었는가.</p>
+    </div>
+
+    <h3>1인 사업 모델 7가지</h3>
+
+    <p>바이브 코딩으로 만들 수 있는 1인 사업 모델을 구체적으로 살펴보자.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>순서</th>
+          <th>사업 모델</th>
+          <th>수익 방식</th>
+          <th>예상 월 매출</th>
+          <th>적합한 사람</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>전문 지식 플랫폼</td><td>유료 콘텐츠 구독</td><td>50만~500만원</td><td>특정 분야 전문가 (회계, 법률, 의료, 교육)</td></tr>
+        <tr><td>2</td><td>컨설팅 예약 시스템</td><td>컨설팅 수수료</td><td>100만~1,000만원</td><td>컨설턴트, 코치, 멘토</td></tr>
+        <tr><td>3</td><td>니치 커뮤니티</td><td>멤버십, 광고</td><td>30만~300만원</td><td>특정 취미/관심사 커뮤니티 리더</td></tr>
+        <tr><td>4</td><td>디지털 도구</td><td>SaaS 구독</td><td>100만~2,000만원</td><td>업계 비효율을 아는 현장 전문가</td></tr>
+        <tr><td>5</td><td>교육 플랫폼</td><td>강의 판매, 구독</td><td>50만~500만원</td><td>교사, 강사, 트레이너</td></tr>
+        <tr><td>6</td><td>매칭 서비스</td><td>중개 수수료</td><td>100만~1,000만원</td><td>양쪽 시장을 아는 중개자</td></tr>
+        <tr><td>7</td><td>콘텐츠 + 커머스</td><td>제품 판매, 제휴</td><td>50만~500만원</td><td>블로거, 작가, 인플루언서</td></tr>
+      </tbody>
+    </table>
+
+    <h3>1인 사업 설계 캔버스</h3>
+
+    <p>다음 9개 항목을 채우면, 당신의 1인 사업이 설계된다.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>순서</th>
+          <th>항목</th>
+          <th>질문</th>
+          <th>작성 예시</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>문제</td><td>어떤 불편함을 해결하는가?</td><td>"시니어 창업자가 개발자 없이 서비스를 만들 수 없다"</td></tr>
+        <tr><td>2</td><td>고객</td><td>누가 이 문제를 겪고 있는가?</td><td>"50~65세, 전문직/경영직 출신, 창업 의향 있는 시니어"</td></tr>
+        <tr><td>3</td><td>가치</td><td>고객에게 어떤 가치를 주는가?</td><td>"코딩 없이 2시간 만에 서비스를 만드는 경험"</td></tr>
+        <tr><td>4</td><td>솔루션</td><td>구체적으로 무엇을 제공하는가?</td><td>"바이브 코딩 실습 가이드 + 도구 매뉴얼 + 사례집"</td></tr>
+        <tr><td>5</td><td>채널</td><td>고객에게 어떻게 도달하는가?</td><td>"링크드인, 시니어 커뮤니티, 창업 교육 기관"</td></tr>
+        <tr><td>6</td><td>수익</td><td>어떻게 돈을 버는가?</td><td>"전자책 9,900원 + 온라인 강의 99,000원 + 멘토링 30만원"</td></tr>
+        <tr><td>7</td><td>비용</td><td>월 고정 비용은 얼마인가?</td><td>"약 3만원 (클로드 코드 구독)"</td></tr>
+        <tr><td>8</td><td>차별점</td><td>왜 나여야 하는가?</td><td>"30년 현장 경험 + 40개 플랫폼 실제 개발 경험"</td></tr>
+        <tr><td>9</td><td>성공 지표</td><td>3개월 후 어떤 상태면 성공인가?</td><td>"MAU 500명, 유료 전환 30명, 월 매출 100만원"</td></tr>
+      </tbody>
+    </table>
+
+    <blockquote class="bq-tip">
+      <strong>이 캔버스를 채우는 데 30분이면 된다</strong>
+      <p>30분 동안 이 9개 항목을 채우고, 클로드 코드에게 "이 사업 모델에 맞는 랜딩 페이지를 만들어줘"라고 말하면, 2시간 후에 당신의 사업은 인터넷에 공개되어 있다. 사업 기획부터 제품 출시까지 총 2시간 30분. 이것이 바이브 코딩 시대의 창업이다.</p>
+    </blockquote>
+
+    <h3>시니어 1인 사업자 시나리오</h3>
+
+    <div class="persona-card">
+      <p class="persona-name">김영수 (58세)</p>
+      <p class="persona-profile">30년 경력 공인회계사, 은퇴 준비 중</p>
+      <p><strong>문제 발견:</strong> 스타트업들이 회계/세무를 제대로 관리하지 못해 투자 유치와 정부 지원에서 불이익을 받는 것을 30년간 지켜봄</p>
+      <p><strong>솔루션:</strong> "스타트업 재무 건강 체크" 플랫폼 — 간단한 질문에 답하면 재무 상태를 진단하고, 개선 방향을 제시</p>
+      <p><strong>바이브 코딩:</strong> 클로드 코드로 2시간 만에 MVP 완성. Supabase로 사용자별 진단 결과 저장. Vercel로 배포</p>
+      <p><strong>수익 모델:</strong> 기본 진단 무료, 상세 리포트 월 9,900원, 1:1 컨설팅 건당 30만원</p>
+      <p><strong>3개월 후:</strong> MAU 800명, 유료 구독 45명, 월 매출 약 150만원</p>
+    </div>
+
+    <div class="persona-card">
+      <p class="persona-name">박미숙 (62세)</p>
+      <p class="persona-profile">25년 경력 요리 연구가, 요리책 3권 출간</p>
+      <p><strong>문제 발견:</strong> 책으로는 레시피의 세밀한 뉘앙스를 전달하기 어려움. 독자들이 "이거 정확히 어떻게 하는 건가요?"라는 질문을 계속 함</p>
+      <p><strong>솔루션:</strong> "미숙의 부엌" 플랫폼 — 레시피에 AI 챗봇을 결합. "감이 얼마나 익었을 때 넣나요?" 같은 질문에 AI가 박미숙의 노하우로 답변</p>
+      <p><strong>바이브 코딩:</strong> 클로드 코드로 레시피 웹앱 + AI 챗봇 구축. 25년간의 레시피 데이터를 벡터 DB로 구축</p>
+      <p><strong>수익 모델:</strong> 기본 레시피 무료, 프리미엄 레시피(비법 포함) 월 4,900원, 요리 클래스 월 1회 10만원</p>
+      <p><strong>3개월 후:</strong> MAU 1,200명, 프리미엄 구독 80명, 월 매출 약 140만원</p>
+    </div>
+
+    <div class="persona-card">
+      <p class="persona-name">이정호 (55세)</p>
+      <p class="persona-profile">20년 경력 부동산 컨설턴트, 상가/오피스 전문</p>
+      <p><strong>문제 발견:</strong> 상가 임대/매매 시장의 정보 비대칭이 심각. 세입자와 건물주 모두 정확한 시세와 트렌드를 모름</p>
+      <p><strong>솔루션:</strong> "상가 시세 리포트" 플랫폼 — 지역, 면적, 업종을 입력하면 AI가 시세와 전망을 분석</p>
+      <p><strong>바이브 코딩:</strong> 클로드 코드로 분석 플랫폼 구축. 20년간의 거래 데이터와 경험을 AI 분석 로직에 반영</p>
+      <p><strong>수익 모델:</strong> 간단 시세 조회 무료, 상세 분석 리포트 건당 19,900원, 현장 컨설팅 건당 50만원</p>
+      <p><strong>3개월 후:</strong> MAU 600명, 유료 리포트 120건, 월 매출 약 290만원</p>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ===== 29장: 다음 단계 ===== -->
+
+    <h2>29장. 이 책 이후의 여정 — 당신의 다음 2시간</h2>
+
+    <h3>이 책에서 당신이 얻은 것</h3>
+
+    <p>이 책의 여정을 돌아보자.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>파트</th>
+          <th>제목</th>
+          <th>당신이 얻은 것</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>PART 0</td><td>먼저 만들어보는 2시간</td><td>이 책의 사용법과, 경험이 이해보다 먼저여야 한다는 확신</td></tr>
+        <tr><td>PART 1</td><td>바이브 코딩</td><td>2시간 실습으로 "나도 할 수 있다"는 경험</td></tr>
+        <tr><td>PART 2</td><td>40개의 플랫폼</td><td>실제 사례를 통한 "이런 것도 되는구나"라는 시야 확장</td></tr>
+        <tr><td>PART 3</td><td>도구를 이해하다</td><td>5가지 도구의 역할과 연결 구조에 대한 이해</td></tr>
+        <tr><td>PART 4</td><td>아이디어에서 투자로</td><td>아이디어를 사업으로 만드는 구조와 투자 유치 방법</td></tr>
+        <tr><td>PART 5</td><td>1인 사업자</td><td>시니어의 강점과 1인 사업 설계 방법</td></tr>
+      </tbody>
+    </table>
+
+    <h3>이 책을 덮고 할 3가지</h3>
+
+    <div class="step-card">
+      <strong>1. 지금 바로, 두 번째 프로젝트를 시작하라</strong>
+      <p>PART 1에서 만든 홈페이지는 연습이었다. 이제 진짜를 만들 차례다. 28장의 1인 사업 설계 캔버스를 채우고, 클로드 코드에게 말하라. "이 사업에 맞는 서비스를 만들어줘." 2시간 후, 당신의 사업은 인터넷에 존재한다.</p>
+    </div>
+
+    <div class="step-card">
+      <strong>2. 10명에게 보여주고, 진짜 반응을 확인하라</strong>
+      <p>URL을 10명에게 보내라. 가까운 사람이 아니라, 실제 고객이 될 수 있는 사람에게. "좋네요"라는 반응은 무시하라. "언제 정식 오픈하나요?" 또는 "이런 기능도 되나요?"라는 반응이 나오면, 당신은 올바른 길 위에 있는 것이다.</p>
+    </div>
+
+    <div class="step-card">
+      <strong>3. 매일 30분씩, 개선하라</strong>
+      <p>완성은 없다. 사용자의 반응을 보고, 매일 조금씩 개선하라. 클로드 코드에게 "이 부분을 이렇게 바꿔줘"라고 말하면 5분이면 된다. 30분이면 2~3개의 개선을 할 수 있다. 한 달이면 서비스가 완전히 달라져 있을 것이다.</p>
+    </div>
+
+    <h3>멈추지 않는 사람이 이긴다</h3>
+
+    <p>바이브 코딩에서 가장 중요한 것은 기술이 아니다. 도구가 아니다. AI의 성능이 아니다.</p>
+
+    <p class="big-quote">멈추지 않는 것이다.</p>
+
+    <p>필자가 40일 동안 40개의 플랫폼을 만들 수 있었던 것은, 특별한 재능이 있어서가 아니다. 매일 하나씩 만들겠다고 결심하고, 그 결심을 40일간 지켰기 때문이다. 어떤 날은 결과물이 마음에 들지 않았다. 어떤 날은 AI가 엉뚱한 코드를 만들었다. 어떤 날은 "이게 의미가 있나?" 하는 회의가 들었다. 하지만 멈추지 않았다.</p>
+
+    <p>당신도 멈추지 마라. 첫 번째 프로젝트가 실패해도 괜찮다. 두 번째도 괜찮다. 세 번째에는 뭔가가 보이기 시작한다. 다섯 번째에는 자신감이 생긴다. 열 번째에는 당신만의 방식이 만들어진다.</p>
+
+    <h3>AI는 도구다. 경험은 당신의 것이다</h3>
+
+    <p>마지막으로, 이 말을 꼭 하고 싶다.</p>
+
+    <p>AI는 강력한 도구다. 하지만 도구일 뿐이다. 망치가 아무리 좋아도, 어디에 못을 박아야 하는지를 아는 것은 목수의 경험이다. 클로드 코드가 아무리 뛰어나도, 어떤 서비스를 만들어야 하는지를 아는 것은 당신의 경험이다.</p>
+
+    <p>30년의 경험. 수천 명의 고객을 만난 기억. 시장의 변화를 지켜본 눈. 실패에서 배운 교훈. 이것들은 AI가 절대 가질 수 없는, 당신만의 자산이다.</p>
+
+    <p>이제 그 자산을 꺼낼 시간이다.</p>
+
+    <hr class="sub-divider">
+
+    <!-- ===== 마무리 박스 ===== -->
+
+    <div class="closing-box">
+      <h3>당신의 다음 2시간</h3>
+      <p>이 책을 다 읽었다면 — 아니, 이 책을 따라 했다면 —<br>당신은 이미 하나를 만들어본 사람이다.</p>
+      <p>이제 두 번째를 만들 차례다.<br>이번에는 연습이 아니라, 진짜다.</p>
+      <p>클로드 코드를 열고, 말하라.</p>
+      <p class="final-line">
+        "내 경험을 세상에 보여줄 서비스를 만들어줘."
+      </p>
+      <p style="margin-top:24px; font-size:9px; color:#666;">
+        2시간 후, 당신의 사업은 시작되어 있을 것이다.
+      </p>
+    </div>
+
+    <p style="margin-top:40px; font-size:17px; font-weight:bold; color:#1e2d5e; text-align:center; line-height:1.8;">
+      코딩을 몰라도, 나이가 많아도, 혼자여도.<br>
+      말로 시작하면 됩니다.<br>
+      당신의 30년이, 지금부터 빛을 발합니다.
+    </p>
+
+  </div>
+
+  <p class="footer-note">
+    &copy; 2026 Vibe Coding Manual by Jaiwoo Shim. All rights reserved.<br>
+    이 문서는 브라우저에서 Ctrl+P &rarr; PDF로 저장하거나, 워드에 복사하여 사용할 수 있다.
+  </p>
+
+  <script src="https://unpkg.com/html-docx-js/dist/html-docx.js"></script>
+  <script>
+    function wordifyClone(clone) {
+      var flexDivs = clone.querySelectorAll('div[style*="display:flex"], div[style*="display: flex"]');
+      flexDivs.forEach(function(fd) {
+        var children = fd.querySelectorAll(':scope > div');
+        if (children.length >= 2) {
+          var table = document.createElement('table');
+          table.setAttribute('style', 'width:100%; border-collapse:collapse; margin:16px 0;');
+          var tr = document.createElement('tr');
+          children.forEach(function(child) {
+            var td = document.createElement('td');
+            td.setAttribute('style', 'text-align:center; padding:12px 16px; background-color:#ffffff; border:1px solid #ddd; width:' + Math.floor(100/children.length) + '%;');
+            td.innerHTML = child.innerHTML;
+            tr.appendChild(td);
+          });
+          table.appendChild(tr);
+          fd.parentNode.replaceChild(table, fd);
+        }
+      });
+
+      var allEls = clone.querySelectorAll('*');
+      for (var i = 0; i < allEls.length; i++) {
+        var s = allEls[i].getAttribute('style') || '';
+        if (s.indexOf('gradient') !== -1) {
+          s = s.replace(/background:\s*[^;]*gradient[^;]*;?/gi, 'background-color:#f0f7ff;');
+          allEls[i].setAttribute('style', s);
+        }
+        s = allEls[i].getAttribute('style') || '';
+        s = s.replace(/border-radius:\s*[^;]*;?/gi, '');
+        s = s.replace(/box-shadow:\s*[^;]*;?/gi, '');
+        allEls[i].setAttribute('style', s);
+      }
+
+      var h3s = clone.querySelectorAll('h3');
+      h3s.forEach(function(h3) {
+        var existing = h3.getAttribute('style') || '';
+        if (existing.indexOf('border-left') === -1) {
+          h3.setAttribute('style', existing + 'border-left:3px solid #7c8cc4; padding-left:12px;');
+        }
+      });
+
+      var bqs = clone.querySelectorAll('blockquote');
+      bqs.forEach(function(bq) {
+        var existing = bq.getAttribute('style') || '';
+        if (existing.indexOf('border-left') === -1) {
+          bq.setAttribute('style', existing + 'border-left:4px solid #16a34a; padding:8px 16px; background-color:#f0fdf4;');
+        }
+      });
+    }
+
+    function inlineAllStyles(container) {
+      var allElements = container.querySelectorAll('*');
+      for (var i = 0; i < allElements.length; i++) {
+        var el = allElements[i];
+        var computed = window.getComputedStyle(el);
+        var existing = el.getAttribute('style') || '';
+        var inlineStyle = '';
+        var props = [
+          'color', 'background-color',
+          'font-size', 'font-weight', 'font-style', 'font-family',
+          'text-align', 'text-decoration', 'letter-spacing',
+          'line-height', 'vertical-align',
+          'margin-top', 'margin-bottom', 'margin-left', 'margin-right',
+          'padding-top', 'padding-bottom', 'padding-left', 'padding-right',
+          'border-top', 'border-bottom', 'border-left', 'border-right',
+          'border-collapse', 'border-spacing',
+          'width', 'display', 'list-style-type'
+        ];
+        for (var j = 0; j < props.length; j++) {
+          var val = computed.getPropertyValue(props[j]);
+          if (val && val !== '' && val !== 'none' && val !== 'normal' && val !== '0px' && val !== 'auto') {
+            inlineStyle += props[j] + ':' + val + ';';
+          }
+        }
+        el.setAttribute('style', inlineStyle + existing);
+      }
+    }
+
+    function downloadDocx() {
+      var btn = document.querySelector('.download-btn');
+      btn.style.display = 'none';
+
+      var clone = document.body.cloneNode(true);
+      var cloneBtn = clone.querySelector('.download-btn');
+      if (cloneBtn) cloneBtn.parentNode.removeChild(cloneBtn);
+      var scripts = clone.querySelectorAll('script');
+      scripts.forEach(function(s) { s.parentNode.removeChild(s); });
+
+      document.body.appendChild(clone);
+      clone.style.position = 'absolute';
+      clone.style.left = '-9999px';
+      inlineAllStyles(clone);
+      document.body.removeChild(clone);
+
+      wordifyClone(clone);
+
+      var content = '<!DOCTYPE html><html><head><meta charset="utf-8">' +
+        '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">' +
+        '</head><body style="font-family:맑은 고딕,Malgun Gothic,sans-serif; margin:0; padding:20px; line-height:1.8;">' +
+        clone.innerHTML + '</body></html>';
+
+      var converted = htmlDocx.asBlob(content, {
+        orientation: 'portrait',
+        margins: { top: 720, right: 720, bottom: 720, left: 720 }
+      });
+
+      var link = document.createElement('a');
+      link.href = URL.createObjectURL(converted);
+      link.download = 'PART5_AI시대의_1인_사업자.docx';
+      link.click();
+      URL.revokeObjectURL(link.href);
+
+      btn.style.display = 'flex';
+    }
+  </script>
+
+</body>
+</html>

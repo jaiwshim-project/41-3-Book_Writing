@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>말로 만드는 사업 — 바이브 코딩으로 2시간 만에 만들고</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: '맑은 고딕', 'Malgun Gothic', 'Segoe UI', sans-serif;
+      background: #0d0d1a;
+      color: #fff;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 60px;
+      background: linear-gradient(135deg, #0d0d1a 0%, #1a1a3e 50%, #1e2d5e 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(124,140,196,0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 50%, rgba(30,45,94,0.12) 0%, transparent 50%);
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-20px, -10px); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(124,140,196,0.2);
+      border: 1px solid rgba(124,140,196,0.3);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #c8d4f0;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.4;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    .hero h1 span {
+      color: #a8b8e8;
+    }
+
+    .hero .subtitle {
+      font-size: 16px;
+      font-weight: 500;
+      color: #c8d0e8;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .hero .author {
+      font-size: 14px;
+      font-weight: 600;
+      color: #a8b8e8;
+      margin-bottom: 8px;
+    }
+
+    /* ===== Prologue / Epilogue ===== */
+    .prose-section {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      border-bottom: 1px solid #2a2d4e;
+    }
+
+    .prose-section h2 {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: #e8eaf6;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    .prose-section p {
+      font-size: 14px;
+      font-weight: 500;
+      color: #c8d0e8;
+      line-height: 2.0;
+      margin-bottom: 16px;
+    }
+
+    .prose-section .quote-line {
+      font-size: 17px;
+      font-weight: 700;
+      color: #e8eaf6;
+      text-align: center;
+      margin: 32px 0;
+      line-height: 1.8;
+    }
+
+    .prose-section .signature {
+      text-align: right;
+      font-size: 13px;
+      font-weight: 600;
+      color: #a8b8e8;
+      margin-top: 24px;
+    }
+
+    /* ===== Chapter Grid ===== */
+    .chapters-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #f0f2ff;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      color: #a8b8e8;
+      margin-bottom: 48px;
+    }
+
+    .chapter-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .chapter-card {
+      display: flex;
+      background: #1a1a2e;
+      border: 1px solid #2a2d4e;
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      color: #fff;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .chapter-card:hover {
+      transform: translateY(-3px);
+      border-color: #7c8cc4;
+      box-shadow: 0 8px 32px rgba(124,140,196,0.15);
+    }
+
+    .card-accent {
+      width: 6px;
+      flex-shrink: 0;
+    }
+
+    .card-body {
+      padding: 28px 32px;
+      flex: 1;
+    }
+
+    .card-part {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      line-height: 1.4;
+      color: #f0f2ff;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      font-weight: 500;
+      color: #c0c8e0;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .card-chapters {
+      font-size: 12px;
+      font-weight: 600;
+      color: #8890b0;
+    }
+
+    .card-arrow {
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      color: #5a6498;
+      font-size: 20px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .chapter-card:hover .card-arrow {
+      color: #a8b8e8;
+    }
+
+    /* Card Colors */
+    .card-c0 .card-accent { background: #f59e0b; }
+    .card-c0 .card-part { color: #fbbf24; }
+
+    .card-c1 .card-accent { background: #3b82f6; }
+    .card-c1 .card-part { color: #60a5fa; }
+
+    .card-c2 .card-accent { background: #10b981; }
+    .card-c2 .card-part { color: #34d399; }
+
+    .card-c3 .card-accent { background: #8b5cf6; }
+    .card-c3 .card-part { color: #a78bfa; }
+
+    .card-c4 .card-accent { background: #ef4444; }
+    .card-c4 .card-part { color: #f87171; }
+
+    .card-c5 .card-accent { background: #ec4899; }
+    .card-c5 .card-part { color: #f472b6; }
+
+    .card-c6 .card-accent { background: #0891b2; }
+    .card-c6 .card-part { color: #22d3ee; }
+
+    /* Guide Card */
+    .guide-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .guide-card {
+      display: flex;
+      background: linear-gradient(135deg, #1a1a2e, #1e2040);
+      border: 1px dashed #5a6498;
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      color: #fff;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .guide-card:hover {
+      border-color: #a8b8e8;
+      border-style: solid;
+      box-shadow: 0 4px 24px rgba(124,140,196,0.1);
+    }
+
+    .guide-card .card-accent {
+      background: #7c8cc4;
+    }
+
+    .guide-card .card-part {
+      color: #a8b8e8;
+    }
+
+    /* Status Badge */
+    .status {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .status-done {
+      background: rgba(16,185,129,0.2);
+      color: #34d399;
+    }
+
+    .status-wip {
+      background: rgba(245,158,11,0.2);
+      color: #fbbf24;
+    }
+
+    .status-planned {
+      background: rgba(100,116,139,0.2);
+      color: #94a3b8;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid #2a2d4e;
+      color: #6870a0;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.8;
+    }
+
+    .footer strong {
+      color: #c8d0e8;
+    }
+
+    .footer a {
+      color: #a8b8e8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 26px; }
+      .card-body { padding: 20px 20px; }
+      .card-title { font-size: 17px; }
+      .card-arrow { padding: 0 16px; }
+      .prose-section { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">VIBE CODING BOOK 2026</div>
+      <h1>말로 만드는 사업<br><span>바이브 코딩</span>으로 2시간 만에 만들고</h1>
+      <p class="subtitle">
+        코딩을 모르는 비개발자가 AI에게 말로 지시하여<br>
+        플랫폼을 만들고, 사업을 시작하는 실전 가이드
+      </p>
+      <p class="author">저자: 심재우 (Jaiwoo Shim) &nbsp;|&nbsp; 집필 AI: Claude Code</p>
+    </div>
+  </section>
+
+  <!-- Prologue -->
+  <section class="prose-section">
+    <h2>프롤로그</h2>
+    <p>10년간 15억 원을 투자해도 만들지 못했던 것을, AI와 함께 40일 만에 만들었습니다.</p>
+    <p>저는 코딩을 모릅니다. 프로그래밍 언어를 배운 적도 없습니다. 30년간 공인회계사와 스타트업 엑셀러레이터로 살아온 사람입니다. 그런 제가 하루에 하나씩, 40일 동안 40개의 플랫폼을 만들었습니다.</p>
+    <p>비결은 단 하나였습니다. <strong style="color:#e8eaf6;">말로 지시했습니다.</strong> AI에게 "이런 서비스를 만들어줘"라고 말하면, AI가 만들어주었습니다. 이 방식을 사람들은 '바이브 코딩'이라고 부릅니다.</p>
+    <p>이 책은 그 과정의 기록이자, 당신이 같은 경험을 할 수 있도록 만든 실전 가이드입니다. 읽지 마십시오. 따라 하십시오. 2시간이면 당신도 하나를 만들 수 있습니다.</p>
+    <p class="quote-line">"코딩을 몰라도, 말로 사업을 만듭니다."</p>
+    <p class="signature">2026년 2월, 심재우</p>
+  </section>
+
+  <!-- Chapters Section -->
+  <section class="chapters-section">
+    <h2 class="section-title">목차</h2>
+    <p class="section-subtitle">아래 파트를 클릭하면 해당 챕터로 이동합니다</p>
+
+    <div class="chapter-grid">
+
+      <!-- PART 0 -->
+      <a href="chapter0.html" class="chapter-card card-c0">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-part">PART 0 <span class="status status-done">완성</span></div>
+          <div class="card-title">먼저 만들어보는 2시간</div>
+          <div class="card-desc">이 책은 이렇게 사용하셔야 합니다 — 읽지 말고, 따라 하십시오. 처음부터 읽지 마십시오.</div>
+          <div class="card-chapters">0장. 이 책의 사용법 / 5가지 핵심 차별성 / 유일한 사용법</div>
+        </div>
+        <div class="card-arrow">&rarr;</div>
+      </a>
+
+      <!-- PART 1 -->
+      <a href="chapter1.html" class="chapter-card card-c1">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-part">PART 1 <span class="status status-done">완성</span></div>
+          <div class="card-title">바이브 코딩 — 말로 만드는 세계</div>
+          <div class="card-desc">바이브 코딩이란 무엇인가, 왜 지금 주목받는가, 그리고 2시간 실습으로 직접 홈페이지를 만든다.</div>
+          <div class="card-chapters">1장~9장. 바이브 코딩 소개 / 2시간 실습 가이드 / 홈페이지 완성</div>
+        </div>
+        <div class="card-arrow">&rarr;</div>
+      </a>
+
+      <!-- PART 2 -->
+      <a href="chapter2.html" class="chapter-card card-c2">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-part">PART 2 <span class="status status-done">완성</span></div>
+          <div class="card-title">40일, 40개의 플랫폼 — 실전 사례</div>
+          <div class="card-desc">클라라 라디오카페, 파이어내비, 어머니의 손맛 레시피 등 실제로 만든 8가지 플랫폼 사례와 발견한 공통점.</div>
+          <div class="card-chapters">10장~16장. 8가지 플랫폼 사례 / 공통점 15가지 / 40일 스토리</div>
+        </div>
+        <div class="card-arrow">&rarr;</div>
+      </a>
+
+      <!-- PART 3 -->
+      <a href="chapter3.html" class="chapter-card card-c3">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-part">PART 3 <span class="status status-done">완성</span></div>
+          <div class="card-title">도구를 이해하다</div>
+          <div class="card-desc">바이브 코딩, 클로드 코드, GitHub, Supabase, Vercel, VS Code — 써본 뒤에 읽으면 비로소 보이는 것들.</div>
+          <div class="card-chapters">17장~22장. 도구별 역할 / 비용 구조 / 5가지 도구 연결 지도</div>
+        </div>
+        <div class="card-arrow">&rarr;</div>
+      </a>
+
+      <!-- PART 4 -->
+      <a href="chapter4.html" class="chapter-card card-c4">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-part">PART 4 <span class="status status-done">완성</span></div>
+          <div class="card-title">아이디어에서 사업으로, 사업에서 투자로</div>
+          <div class="card-desc">아이디어를 검증하고, MVP를 완성하고, 고도화하여 투자를 유치하는 구조를 설계한다.</div>
+          <div class="card-chapters">23장~26장. 아이디어 검증 / MVP 완성 / 고도화 / 투자 유치</div>
+        </div>
+        <div class="card-arrow">&rarr;</div>
+      </a>
+
+      <!-- PART 5 -->
+      <a href="chapter5.html" class="chapter-card card-c5">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-part">PART 5 <span class="status status-done">완성</span></div>
+          <div class="card-title">AI 시대의 1인 사업자</div>
+          <div class="card-desc">시니어에게 바이브 코딩이 유리한 이유, 1인 사업자의 가능성, 이 책 이후의 여정.</div>
+          <div class="card-chapters">27장~29장. 시니어의 강점 / 1인 사업 설계 / 다음 단계</div>
+        </div>
+        <div class="card-arrow">&rarr;</div>
+      </a>
+
+      <!-- PART 6 -->
+      <a href="chapter6.html" class="chapter-card card-c6">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-part">PART 6 <span class="status status-done">완성</span></div>
+          <div class="card-title">디자인은 기술이 아니라 설득이다</div>
+          <div class="card-desc">비디자이너 1인 창업자를 위한 실전 디자인 구조. 7가지 원리, 디자인 가이드 20, 명령어 20, 점검 체크리스트.</div>
+          <div class="card-chapters">30장~38장. 디자인 원리 / 웹·앱 구조 / 색·폰트 통제 / AI 디자인 개선 / 실전 사례</div>
+        </div>
+        <div class="card-arrow">&rarr;</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Guide Section -->
+  <section class="guide-section">
+    <a href="guide.html" class="guide-card">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-part">부록</div>
+        <div class="card-title">Claude Code 집필 가이드</div>
+        <div class="card-desc">이 책을 집필하면서 사용한 전체 과정과 33가지 명령어를 정리한 가이드북. 동일한 방식으로 책을 쓸 때 참고하세요.</div>
+      </div>
+      <div class="card-arrow">&rarr;</div>
+    </a>
+  </section>
+
+  <!-- Epilogue -->
+  <section class="prose-section" style="border-bottom:none;">
+    <h2>에필로그</h2>
+    <p>이 책을 쓰는 동안 저는 계속 한 가지 생각을 했습니다. "10년 전에 이 도구가 있었다면 어땠을까."</p>
+    <p>10년간 15억 원을 쓰고도 만들지 못했던 플랫폼을, 지금은 하루 만에 만듭니다. 수백만 원짜리 외주 개발을 기다리며 답답해하던 시간이, 이제는 AI에게 한 문장 말하는 것으로 바뀌었습니다. 세상이 그만큼 바뀌었습니다.</p>
+    <p>하지만 저는 10년의 실패를 후회하지 않습니다. 그 시간이 없었다면, 무엇을 만들어야 하는지를 알지 못했을 것입니다. 바이브 코딩에서 가장 중요한 것은 코딩 기술이 아니라, <strong style="color:#e8eaf6;">"무엇을 만들어야 하는지"를 아는 것</strong>입니다. 그것은 경험에서만 옵니다.</p>
+    <p>당신에게도 그 경험이 있습니다. 수십 년간 현장에서 쌓은 지식, 고객의 불편함을 피부로 느끼는 감각, 시장의 흐름을 읽는 눈 — 그것이 당신의 가장 큰 자산입니다. 이제 그 자산을 현실로 바꿀 도구가 생겼습니다.</p>
+    <p class="quote-line">시작하십시오.<br>말로 시작하면 됩니다.<br>2시간이면 충분합니다.</p>
+    <p class="signature">심재우 드림</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; 2026 <strong>말로 만드는 사업</strong> by Jaiwoo Shim. All rights reserved.<br>
+    Powered by <a href="https://claude.ai" target="_blank">Claude Code</a> &nbsp;|&nbsp;
+    Built with Vibe Coding
+  </footer>
+
+</body>
+</html>
