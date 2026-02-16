@@ -253,6 +253,12 @@
     .card-c6 .card-accent { background: #0891b2; }
     .card-c6 .card-part { color: #22d3ee; }
 
+    .card-prologue .card-accent { background: #a78bfa; }
+    .card-prologue .card-part { color: #c4b5fd; }
+
+    .card-epilogue .card-accent { background: #a78bfa; }
+    .card-epilogue .card-part { color: #c4b5fd; }
+
     /* Guide Card */
     .guide-section {
       max-width: 900px;
@@ -363,7 +369,7 @@
   </section>
 
   <!-- Prologue -->
-  <section class="prose-section">
+  <section id="prologue" class="prose-section">
     <h2>프롤로그</h2>
     <p>10년간 15억 원을 투자해도 만들지 못했던 것을, AI와 함께 40일 만에 만들었습니다.</p>
     <p>저는 코딩을 모릅니다. 프로그래밍 언어를 배운 적도 없습니다. 30년간 공인회계사와 스타트업 엑셀러레이터로 살아온 사람입니다. 그런 제가 하루에 하나씩, 40일 동안 40개의 플랫폼을 만들었습니다.</p>
@@ -379,6 +385,17 @@
     <p class="section-subtitle">아래 파트를 클릭하면 해당 챕터로 이동합니다</p>
 
     <div class="chapter-grid">
+
+      <!-- Prologue -->
+      <a href="#prologue" class="chapter-card card-prologue">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-part">PROLOGUE</div>
+          <div class="card-title">프롤로그</div>
+          <div class="card-desc">10년간 15억 원을 투자해도 만들지 못했던 것을, AI와 함께 40일 만에 만들었습니다.</div>
+        </div>
+        <div class="card-arrow">&rarr;</div>
+      </a>
 
       <!-- PART 0 -->
       <a href="chapter0.html" target="_blank" class="chapter-card card-c0">
@@ -464,6 +481,17 @@
         <div class="card-arrow">&rarr;</div>
       </a>
 
+      <!-- Epilogue -->
+      <a href="#epilogue" class="chapter-card card-epilogue">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-part">EPILOGUE</div>
+          <div class="card-title">에필로그</div>
+          <div class="card-desc">"10년 전에 이 도구가 있었다면 어땠을까." — 시작하십시오. 말로 시작하면 됩니다.</div>
+        </div>
+        <div class="card-arrow">&rarr;</div>
+      </a>
+
     </div>
   </section>
 
@@ -481,7 +509,7 @@
   </section>
 
   <!-- Epilogue -->
-  <section class="prose-section" style="border-bottom:none;">
+  <section id="epilogue" class="prose-section" style="border-bottom:none;">
     <h2>에필로그</h2>
     <p>이 책을 쓰는 동안 저는 계속 한 가지 생각을 했습니다. "10년 전에 이 도구가 있었다면 어땠을까."</p>
     <p>10년간 15억 원을 쓰고도 만들지 못했던 플랫폼을, 지금은 하루 만에 만듭니다. 수백만 원짜리 외주 개발을 기다리며 답답해하던 시간이, 이제는 AI에게 한 문장 말하는 것으로 바뀌었습니다. 세상이 그만큼 바뀌었습니다.</p>
